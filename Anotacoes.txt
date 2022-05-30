@@ -1,0 +1,100 @@
+//Formato Tipo da variável Conversão realizada
+
+//%c Caracteres char, short int, int, long int
+//%d Inteiros int, short int, long int
+//%e Ponto flutuante, notação científica float, double
+//%f Ponto flutuante, notação decimal float, double
+//%lf Ponto flutuante, notação decimal double
+//%g O mais curto de %e ou %f float, double
+//%o Saída em octal int, short int, long int, char
+//%s String char *, char[]
+//%u Inteiro semsinal unsigned int, unsigned short int,
+//unsigned long int
+//%x Saída em hexadecimal (0 a f ) int, short int, long int, char
+//%X Saída em hexadecimal (0 a F) int, short int, long int, char
+//%ld Saída em decimal longo Usado quando long int e int possuemtamanhos
+//diferentes.
+
+
+Para formatar um float, basta seguir a definição:
+1 \%[tam].[casa_dec]f
+Emque:
+• tam – indica o tamanho mínimo que deve ser impresso na saída. Se o número
+possuir umtamanho superior ao informado neste parâmetro, o número não será
+truncado.
+• casa_dec – número de casas decimais que devem ser impressas. Neste caso, se o
+número possuir uma quantidade de casas decimais superior ao indicado, então
+as casas decimais serão truncadas.
+Assim, se quiser imprimir a informação com apenas duas casas decimais, basta
+ajustar o código da seguinte forma:
+1 float total = 300 + 400;
+2 printf("Total da conta: %3.2f", total);
+
+Veja que a saída apresentada na figura 4 obedeceu à formatação de duas casas decimais
+e naturalmente a informação apresentada na saída ficou mais elegante. Observe
+agora um exemplo de uso da função printf() com 3 parâmetros.
+1 int mat = 335642;
+2 float medF = 7;
+3 printf("Matricula: %d, Med Final: %2.2f ", mat, medF);
+
+
+1 int mat = 335642;
+2 float medF = 7;
+3 printf("Matricula: %d", mat);
+4 printf("Media Final: %2.2f", medF);
+
+
+int mat =335642;
+2 float medF = 7;
+3 printf("Matricula: %d\n", mat);
+4 printf("Media Final: %2.2f", medF);
+
+
+\b Retrocesso (back)
+\f Alimentação de formulário (form feed)
+\n Nova linha (new line)
+\t Tabulação horizontal (tab)
+\" Aspas
+\’ Apóstrofo
+\0 Nulo (0 emdecimal)
+\\ Barra invertida
+\v Tabulação vertical
+\a Sinal sonoro (beep)
+\N Constante octal (N é o valor da constante)
+\xN Constante hexadecimal (N é o valor da constante
+
+
+float nota1, nota2;
+2 scanf("%f %f", &nota1, &nota2);
+
+
+
+== Igualdade a == b a é igual a b?
+> Maior que a > b a é maior que b?
+>= Maior ou igual que a >= b a é maior ou igual a b?
+< Menor que a < b a é menor que b?
+<= Menor ou igual que a <= b a é menor ou igual a b?
+!= Diferente de a != b a é diferente de b?
+
+
+Operador Lógico Representação em C Exemplo
+E (conjunção) && x > 1 && x < 19
+OU (disjunção) || (duas barras verticais) x == 1 || x == 2
+NÃO (negação) ! (exclamação) ! Continuar
+
+
+
+PONTEIROS
+exemplo, suponha que você precisa executar duas operações matemáticas
+básicas, soma e subtração, com dois valores, como uma função não é capaz de retornar
+mais de um valor, então será necessário atualizar as variáveis de resultado pelos
+argumentos de entrada da função, novamente tem-se um caso em que é necessário
+utilizar a passagem por referência. Contudo, em C não existe passagem de parâmetros
+por referência (EDELWEISS; LIVI, 2014, p. 258), assim, para suprir esta necessidade
+utiliza-se ponteiros.
+
+
+
+
+
+

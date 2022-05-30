@@ -1,0 +1,94 @@
+>Ponteiro para estrutura
+
+typedef struct
+{
+char nome[100]; int idade;
+} pessoa;
+main()
+{
+pessoa joao; pessoa *p = &joao;
+strcpy(joao.nome, "joao da silva"); joao.idade = 20;
+printf("%s, %d\n", (*p).nome, (*p).idade);
+(*p).idade = 18;
+printf("%s, %d\n", joao.nome, joao.idade);
+}
+
+//----------------------------------------------------------------------------
+
+Operador
+-> substitui
+(*p).
+
+typedef struct
+{
+char nome[100]; int idade;
+} pessoa;
+main()
+{
+pessoa joao; pessoa *p = &joao;
+strcpy(joao.nome, "joao da silva"); joao.idade = 20;
+printf("%s, %d\n", p->nome, p->idade);
+p->idade = 18;
+printf("%s, %d\n", joao.nome, joao.idade);
+}
+//----------------------------------------------------------------------------
+
+>Estruturas auto-referenciadas
+
+typedef struct pessoa pessoa; struct pessoa
+{
+char nome[100]; int idade; pessoa *pai;
+};
+main()
+{
+pessoa pessoa
+joao, pedro;
+*p = &joao;
+strcpy(joao.nome, "joao da silva"); joao.idade
+= 20;
+strcpy(pedro.nome, "pedro da silva"); pedro.idade = 45;
+joao.pai = &pedro; printf("%s, %d\n", printf("%s, %d\n",
+joao.pai->nome, joao.pai->idade); p->pai->nome, p->pai->idade);
+}
+
+Se não fosse o operador -> ...
+
+printf("%s, %d\n", (*(*p).pai).nome, (*(*p).pai).idade);
+// no lugar de
+printf("%s, %d\n", p->pai->nome, p->pai->idade);
+//----------------------------------------------------------------------------
+
+>Alocação dinâmica
+
+Permite solicitar memória em tempo de execução
+•Função para alocar memória (stdlib.h): 
+	malloc(num_bytes)
+   –Retorna o endereço de memória da região alocada
+   –Retorna zero se não for possível alocar
+•Função para liberar a memória (stdlib.h): 
+	free(endereco_regiao_alocada)
+   –A região fica disponível para outras variáveis/alocações
+
+//----------------------------------------------------------------------------
+main()
+{
+	// alocando um inteiro
+	int *p = (int*) malloc(sizeof(int)); if (p)
+	{
+	*p = 3; printf("%d\n", *p); free(p);
+	}
+}
+
+
+//----------------------------------------------------------------------------
+
+>Modificando o tamanho da região alocada
+
+•A função realloc (stdlib.h) permite modificar o tamanho de uma região alocada, 
+conservando os dados previamente armazenados
+•No caso de uma aumento de tamanho, realloc tenta utilizar 
+bytes adjacentes à região já alocada
+•Caso não seja possível, uma nova região é alocada, e os dados 
+armazenados na antiga região são copiados
+
+
